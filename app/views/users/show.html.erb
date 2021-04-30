@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <%= render "books/left", book:@book %>
+    <div class="col-md-8">
+      <h2>Books</h2>
+      <% @books.each do |book| %>
+      <table>
+        <tr>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        </tr>
+      </table>
+      <% end %>
+      <%= paginate @books %>
+    </div>
+  </div>
+</div>

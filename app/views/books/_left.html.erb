@@ -1,0 +1,30 @@
+    <!--左側-->
+    <dev class="col-md-3">
+      <h2>User info</h2>
+
+      <img></img>
+
+      <table>
+        <tr>
+          <th>name</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <td></td>
+        </tr>
+      </table>
+
+      <%= link_to edit_user_registration_path ,class:"fas fa-user-cog" %>
+
+      <h2>New book</h2>
+      <%= form_with model:book, url:'/books', local:true do |f| %>
+      <h4>Title</h4>
+      <%= f.text_field :title %>
+      <h4>Opinion</h4>
+      <%= f.text_area :body %>
+      <%= f.submit "Create Book" %>
+      <% end %>
+
+    </dev>
+    <!--左側ここまで-->
