@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <!--左側-->
-    <%= render 'books/left',book:@book ,user_id:@user_id %>
+    <%= render 'books/left',book:@book,user_id:@user_id %>
     <!--左側ここまで-->
     <!--右側-->
     <div class="col-md-8">
@@ -10,7 +10,9 @@
       <% @books.each do |book| %>
       <table>
        <tr>
-          <td>image<br><%= book.user.name %></td>
+          <td><%= attachment_image_tag @user_id, :profile_image, size: "30x30", format:'jpeg', fallback:"no_image.jpg" %>
+              <br><%= book.user.name %>
+          </td>
           <td><%= link_to book_path(book.id) do %>
               <%= book.title %>
               <% end %>

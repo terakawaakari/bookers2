@@ -2,30 +2,32 @@
     <dev class="col-md-3">
       <h2>User info</h2>
 
-      <img></img>
+      <%= attachment_image_tag user_id, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>
 
       <table>
         <tr>
           <th>name</th>
-          <td></td>
+          <td><%= user_id.name %></td>
         </tr>
         <tr>
           <th>introduction</th>
-          <td></td>
+          <td><%= user_id.introduction %></td>
         </tr>
       </table>
 
       <div class="row">
-        <%= link_to "編集", edit_user_path(user_id) %>
+        <%= link_to edit_user_path(user_id) do %>
+          <span class="btn btn-outline-secondary btn-block fas fa-user-cog"></span>
+        <% end %>
       </div>
-      
+
       <h2>New book</h2>
-      <%= form_with model:book, url:'/books', local:true do |f| %>
+      <%= form_with model:book, local:true do |f| %>
       <h4>Title</h4>
       <%= f.text_field :title %>
       <h4>Opinion</h4>
       <%= f.text_area :body %>
-      <%= f.submit "Create Book" %>
+      <%= f.submit "Create Book",class:"btn-success text-light rounded " %>
       <% end %>
 
     </dev>

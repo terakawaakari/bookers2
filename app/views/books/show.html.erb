@@ -8,12 +8,12 @@
       <h2>Book detail</h2>
       <table>
        <tr>
-          <td>image<br><%= @book.user.name %></td>
-          <td><%= @book.title %></td>
-          <td><%= @book.body %></td>
-          <% if @book.user == current_user %>
-          <td><%= link_to "Edit",edit_book_path(@book.id) %></td>
-          <td><%= link_to "Destroy",book_path(@book),method: :delete %></td>
+          <td><%= attachment_image_tag @user_id, :profile_image, size: "30x30", format:'jpeg', fallback:"no_image.jpg" %><br><%= @book_find.user.name %></td>
+          <td><%= @book_find.title %></td>
+          <td><%= @book_find.body %></td>
+          <% if @book_find.user == current_user %>
+          <td><%= link_to "Edit",edit_book_path(@book_find.id), class:"btn btn-sm btn-success" %></td>
+          <td><%= link_to "Destroy",book_path(@book_find), class:"btn btn-sm btn-danger",method: :delete %></td>
           <% end %>
         </tr>
       </table>
