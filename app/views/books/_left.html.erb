@@ -15,8 +15,10 @@
         </tr>
       </table>
 
-      <%= link_to edit_user_registration_path ,class:"fas fa-user-cog" %>
-
+      <div class="row">
+        <%= link_to "編集", edit_user_path(user_id) %>
+      </div>
+      
       <h2>New book</h2>
       <%= form_with model:book, url:'/books', local:true do |f| %>
       <h4>Title</h4>

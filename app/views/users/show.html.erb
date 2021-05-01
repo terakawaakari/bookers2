@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= render "books/left", book:@book %>
+    <%= render "books/left", book:@book, user_id:@user_id %>
     <div class="col-md-8">
       <h2>Books</h2>
       <% @books.each do |book| %>
@@ -13,7 +13,6 @@
           <td><%= book.title %></td>
           <td><%= book.body %></td>
         </tr>
-      </table>
       <% end %>
       <%= paginate @books %>
     </div>
