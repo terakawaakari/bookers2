@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
     @user_id = current_user
+    @book = Book.new
   end
 
   def edit
