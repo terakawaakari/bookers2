@@ -3,7 +3,7 @@
     <%= render "books/left", book:@book, user_id:@user_id %>
     <div class="col-md-8">
       <h2>Books</h2>
-      
+
       <table class="table">
         <thead>
         <tr>
@@ -16,7 +16,7 @@
         <% @books.each do |book| %>
         <tr>
           <td>
-            <%= attachment_image_tag @user_id, :profile_image, size: "30x30", format:'jpeg', fallback:"no_image.jpg" %>
+            <%= attachment_image_tag @user, :profile_image, size: "30x30", format:'jpeg', fallback:"no_image.jpg" %>
           </td>
           <td>
             <%=link_to book_path(book.id) do %>
@@ -28,7 +28,7 @@
         <% end %>
         </tbody>
       </table>
-      
+
       <%= paginate @books %>
     </div>
   </div>
