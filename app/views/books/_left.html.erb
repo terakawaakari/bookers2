@@ -1,11 +1,4 @@
     <!--左側-->
-    <% if @book.errors.any? %>
-      <%= @book.errors.count %>errors prohibited this obj from being saved:
-      <% @book.errors.full_messages.each do |message| %>
-        <%= message %>
-      <% end %>
-    <% end %>
-
     <dev class="col-md-3 mr-5">
       <h2>User info</h2>
 
@@ -14,26 +7,30 @@
       <table class="table my-3">
         <tr>
           <th>name</th>
-          <td><%= user_id.name %></td>
+          <td><%= current_user.name %></td>
         </tr>
         <tr>
           <th>introduction</th>
-          <td><%= user_id.introduction %></td>
+          <td><%= current_user.introduction %></td>
         </tr>
       </table>
 
       <div class="row-fluid">
-        <%= link_to edit_user_path(user_id) do %>
+        <%= link_to edit_user_path(current_user) do %>
           <span class="btn btn-outline-secondary btn-block fas fa-user-cog"></span>
         <% end %>
       </div>
 
       <h2 class="my-3">New book</h2>
       <%= form_with model:book, local:true do |f| %>
+      <div class="form-group">
       <h6 class="my-2">Title</h6>
-      <%= f.text_field :title %>
+      <%= f.text_field :title ,class:"form-control" %>
+      </div>
+      <div class="form-group">
       <h6 class="my-2">Opinion</h6>
-      <%= f.text_area :body %>
+      <%= f.text_area :body ,class:"form-control" %>
+      </div>
       <div class="my-2">
       <%= f.submit "Create Book",class:"btn-success text-light rounded " %>
       </div>
