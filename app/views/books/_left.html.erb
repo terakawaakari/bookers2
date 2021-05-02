@@ -1,4 +1,11 @@
     <!--左側-->
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>errors prohibited this obj from being saved:
+      <% @book.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
     <dev class="col-md-3 mr-5">
       <h2>User info</h2>
 
@@ -31,6 +38,5 @@
       <%= f.submit "Create Book",class:"btn-success text-light rounded " %>
       </div>
       <% end %>
-
     </dev>
     <!--左側ここまで-->
